@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { InventoryService } from './inventory.service';
 import { CreateInventoryDto } from './dto/create-inventory.dto/create-inventory.dto';
 
@@ -14,5 +14,20 @@ export class InventoryController {
   @Get()
   async findAll() {
     return this.inventoryService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    return this.inventoryService.findOne(id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body() updateInventoryDto: CreateInventoryDto) {
+    return this.inventoryService.update(id, updateInventoryDto);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return this.inventoryService.remove(id);
   }
 }
