@@ -1,5 +1,5 @@
+// create-inventory.dto.ts
 export class CreateInventoryDto {
-    readonly productId: string;
-    readonly stock: number;
-  }
-  
+  readonly name: string;
+  readonly quantity: number;
+}

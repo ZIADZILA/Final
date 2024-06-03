@@ -4,10 +4,10 @@ import { Document } from 'mongoose';
 @Schema()
 export class Inventory {
   @Prop()
-  productId: string;
+  name: string;
 
   @Prop()
-  stock: number;
+  quantity: number;
 }
 
 export type InventoryDocument = Inventory & Document;
